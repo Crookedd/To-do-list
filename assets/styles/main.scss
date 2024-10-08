@@ -1,0 +1,92 @@
+$primary-color: #FF8303;
+$background-color: #1B1A17;
+$text-color: #FFFFFF;
+$font-color: #333;
+$task-background: #242320;
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: $background-color;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.text-container {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.title, .about {
+    height: 32px;
+    font-size: 10px;
+    color: $text-color;
+    background-color: $task-background;
+    border: 1px solid $primary-color;
+    border-radius: 4px;
+    margin: 2px; 
+    padding: 0 10px; 
+    display: flex; 
+    align-items: center; 
+}
+.add_button {
+    background-color: $background-color;
+    color: $primary-color;
+    font-size: 40px;
+    width: 70px;
+    height: 70px;
+    border-color: $primary-color;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.task_section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.top_line {
+    width: 64px;
+    border: 2px solid $primary-color;
+}
+
+.no_tasks {
+    color: $text-color; 
+    font-size: 18px; 
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
