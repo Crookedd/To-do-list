@@ -25,6 +25,7 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 8px;
+  flex-wrap: nowrap;
 }
 
 .text-container {
@@ -34,7 +35,7 @@ body {
   flex-grow: 1;
 }
 
-.title, .about {
+.input {
   height: 32px;
   font-size: 10px;
   color: #FFFFFF;
@@ -43,8 +44,6 @@ body {
   border-radius: 4px;
   margin: 2px;
   padding: 0 10px;
-  display: flex;
-  align-items: center;
 }
 
 .add_button {
@@ -59,9 +58,48 @@ body {
   cursor: pointer;
 }
 
+.task {
+  background-color: #242320;
+  border: 1px solid #FF8303;
+  height: 44px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  color: rgba(240, 227, 202, 0.6392156863);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task .text-container {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.task .title {
+  font-size: 22px;
+  margin: 0;
+}
+
+.task .about {
+  font-size: 14px;
+  margin: 0;
+}
+
+.delete_button {
+  width: 32px;
+  height: 32px;
+  font-size: 25px;
+  background-color: #1B1A17;
+  border-color: #FF8303;
+  border-radius: 4px;
+  color: #FF8303;
+  cursor: pointer;
+}
+
 .task_section {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .top_line {
@@ -79,7 +117,7 @@ body {
     padding: 10px;
   }
   .header {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
   }
 }/*# sourceMappingURL=main.css.map */

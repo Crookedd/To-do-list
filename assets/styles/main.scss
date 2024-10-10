@@ -1,7 +1,7 @@
 $primary-color: #FF8303;
 $background-color: #1B1A17;
 $text-color: #FFFFFF;
-$font-color: #333;
+$font-color: #F0E3CAA3;
 $task-background: #242320;
 
 @font-face {
@@ -32,6 +32,7 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 8px;
+    flex-wrap: nowrap;
 }
 
 .text-container {
@@ -41,7 +42,7 @@ body {
     flex-grow: 1; 
 }
 
-.title, .about {
+.input {
     height: 32px;
     font-size: 10px;
     color: $text-color;
@@ -49,9 +50,7 @@ body {
     border: 1px solid $primary-color;
     border-radius: 4px;
     margin: 2px; 
-    padding: 0 10px; 
-    display: flex; 
-    align-items: center; 
+    padding: 0 10px;
 }
 .add_button {
     background-color: $background-color;
@@ -65,9 +64,48 @@ body {
     cursor: pointer;
 }
 
+.task {
+    background-color: $task-background; 
+    border: 1px solid $primary-color; 
+    height: 44px;
+    padding: 10px; 
+    margin: 10px 0;
+    border-radius: 5px;
+    color: $font-color; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.task .text-container {
+    flex-grow: 1; 
+    margin-right: 10px; 
+}
+
+.task .title {
+    font-size: 22px;
+    margin: 0;
+}
+
+.task .about {
+    font-size: 14px;
+    margin: 0;
+}
+
+.delete_button {
+    width: 32px;
+    height: 32px;
+    font-size: 25px;
+    background-color: $background-color;
+    border-color: $primary-color;
+    border-radius: 4px;
+    color: $primary-color; 
+    cursor: pointer;
+}
+
 .task_section {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .top_line {
@@ -86,7 +124,7 @@ body {
     }
 
     .header {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
     }
 }

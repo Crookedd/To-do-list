@@ -2,22 +2,24 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/styles/main.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
             <div class="text-container">
-                <p class="title">Title...</p>
-                <p class="about">About...</p>
+                <input type="text" class="input title" placeholder="Title...">
+                <input type="text" class="input about" placeholder="About...">
             </div>
             <button class="add_button">+</button>
         </div>
-        <div class="task_section">
+        <div class="task_section" id="taskSection">
             <hr class="top_line">
-            <p class="no_tasks">No tasks</p>
+            <p class="no_tasks" id="noTasksMessage">No tasks</p>
             <hr class="top_line">
         </div>
+        <script src="/assets/scripts/app.js"></script>
     </div>
 </body>
 </html>
