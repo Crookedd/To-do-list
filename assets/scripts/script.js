@@ -63,9 +63,66 @@ document.addEventListener('DOMContentLoaded', () => {
             updateNoTasksMessage();
         };
     
+        // Добавляем текст и кнопку удаления
         taskDiv.appendChild(textContainer);
         taskDiv.appendChild(deleteButton);
         taskSection.appendChild(taskDiv);
+
+        const buttonContainer = createButtonContainer();
+        taskSection.appendChild(buttonContainer); // Добавляем кнопки в taskSection
+
+        let hideTimeout;
+
+        // Обработчики наведения
+        taskDiv.onmouseover = () => {
+            clearTimeout(hideTimeout); // Остановить таймер скрытия
+            buttonContainer.classList.remove('hidden');
+            taskDiv.classList.add('expanded');
+        };
+    
+        taskDiv.onmouseout = () => {
+            hideTimeout = setTimeout(() => {
+                buttonContainer.classList.add('hidden');
+                taskDiv.classList.remove('expanded');
+            }, 200); // Задержка перед скрытием
+        };
+    
+        // Обработчики для кнопок
+        buttonContainer.onmouseover = () => {
+            clearTimeout(hideTimeout); // Остановить таймер скрытия
+            buttonContainer.classList.remove('hidden');
+            taskDiv.classList.add('expanded');
+        };
+    
+        buttonContainer.onmouseout = () => {
+            hideTimeout = setTimeout(() => {
+                buttonContainer.classList.add('hidden');
+                taskDiv.classList.remove('expanded');
+            }, 200); // Задержка перед скрытием
+        };
+    }
+
+    function createButtonContainer() {
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'button-container hidden'; 
+
+        const shareButton = document.createElement('button');
+        shareButton.className = 'action_button';
+        shareButton.innerHTML = 'p'; 
+
+        const infoButton = document.createElement('button');
+        infoButton.className = 'action_button';
+        infoButton.innerHTML = 'ℹ️'; 
+
+        const editButton = document.createElement('button');
+        editButton.className = 'action_button';
+        editButton.innerHTML = 'e'; 
+
+        buttonContainer.appendChild(shareButton);
+        buttonContainer.appendChild(infoButton);
+        buttonContainer.appendChild(editButton);
+
+        return buttonContainer;
     }
 
     function deleteTask(taskToDelete) {

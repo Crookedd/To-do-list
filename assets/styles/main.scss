@@ -122,6 +122,35 @@ body {
 
 //добавление кнопок поделиться, информация,редактирование
 
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 2px; 
+    gap: 10px;
+    transition: all 0.3s ease; /* Плавный переход */
+}
+
+.hidden {
+    display: none; /* Скрыть кнопки */
+}
+
+.task.expanded {
+    margin-top: 25px;
+    margin-bottom: 5px; /* Увеличить отступ для следующей задачи */
+
+}
+
+.action_button {
+    width: 36px;
+    height: 36px;
+    background-color: $task-background; 
+    border: 1px solid $primary-color; 
+    color: $primary-color; 
+    cursor: pointer;
+    padding: 5px 10px; 
+    border-radius: 4px; 
+    font-size: 14px;
+}
 
 @media (max-width: 600px) {
     .container {

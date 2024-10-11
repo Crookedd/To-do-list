@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Roboto";
   src: url(../fonts/Roboto-Regular.ttf);
@@ -58,6 +59,21 @@ body {
   cursor: pointer;
 }
 
+.task_section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.top_line {
+  width: 64px;
+  border: 2px solid #FF8303;
+}
+
+.no_tasks {
+  color: #FFFFFF;
+  font-size: 18px;
+}
+
 .task {
   background-color: #242320;
   border: 1px solid #FF8303;
@@ -97,19 +113,33 @@ body {
   cursor: pointer;
 }
 
-.task_section {
-  text-align: center;
-  margin-top: 40px;
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2px;
+  gap: 10px;
+  transition: all 0.3s ease; /* Плавный переход */
 }
 
-.top_line {
-  width: 64px;
-  border: 2px solid #FF8303;
+.hidden {
+  display: none; /* Скрыть кнопки */
 }
 
-.no_tasks {
-  color: #FFFFFF;
-  font-size: 18px;
+.task.expanded {
+  margin-top: 25px;
+  margin-bottom: 5px; /* Увеличить отступ для следующей задачи */
+}
+
+.action_button {
+  width: 36px;
+  height: 36px;
+  background-color: #242320;
+  border: 1px solid #FF8303;
+  color: #FF8303;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 @media (max-width: 600px) {
