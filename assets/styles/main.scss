@@ -64,6 +64,23 @@ body {
     cursor: pointer;
 }
 
+.task_section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.top_line {
+    width: 64px;
+    border: 2px solid $primary-color;
+}
+
+.no_tasks {
+    color: $text-color; 
+    font-size: 18px; 
+}
+
+//Добавление задачи и удаление её
+
 .task {
     background-color: $task-background; 
     border: 1px solid $primary-color; 
@@ -103,20 +120,8 @@ body {
     cursor: pointer;
 }
 
-.task_section {
-    text-align: center;
-    margin-top: 40px;
-}
+//добавление кнопок поделиться, информация,редактирование
 
-.top_line {
-    width: 64px;
-    border: 2px solid $primary-color;
-}
-
-.no_tasks {
-    color: $text-color; 
-    font-size: 18px; 
-}
 
 @media (max-width: 600px) {
     .container {

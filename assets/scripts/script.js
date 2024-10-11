@@ -35,38 +35,38 @@ document.addEventListener('DOMContentLoaded', () => {
         tasks.forEach(task => renderTask(task));
         updateNoTasksMessage();
     }
-
-function renderTask(task) {
-    const taskDiv = document.createElement('div');
-    taskDiv.className = 'task';
     
-    const textContainer = document.createElement('div');
-    textContainer.className = 'text-container';
-
-    const title = document.createElement('p');
-    title.className = 'title';
-    title.textContent = task.title;
-
-    const about = document.createElement('p');
-    about.className = 'about';
-    about.textContent = task.about;
-
-    textContainer.appendChild(title);
-    textContainer.appendChild(about);
-
-    const deleteButton = document.createElement('button');
-    deleteButton.className = 'delete_button';
-    deleteButton.innerHTML = '&times;';
-    deleteButton.onclick = () => {
-        taskSection.removeChild(taskDiv);
-        deleteTask(task);
-        updateNoTasksMessage();
-    };
-
-    taskDiv.appendChild(textContainer);
-    taskDiv.appendChild(deleteButton);
-    taskSection.appendChild(taskDiv);
-}
+    function renderTask(task) {
+        const taskDiv = document.createElement('div');
+        taskDiv.className = 'task';
+        
+        const textContainer = document.createElement('div');
+        textContainer.className = 'text-container';
+    
+        const title = document.createElement('p');
+        title.className = 'title';
+        title.textContent = task.title;
+    
+        const about = document.createElement('p');
+        about.className = 'about';
+        about.textContent = task.about;
+    
+        textContainer.appendChild(title);
+        textContainer.appendChild(about);
+    
+        const deleteButton = document.createElement('button');
+        deleteButton.className = 'delete_button';
+        deleteButton.innerHTML = '&times;';
+        deleteButton.onclick = () => {
+            taskSection.removeChild(taskDiv);
+            deleteTask(task);
+            updateNoTasksMessage();
+        };
+    
+        taskDiv.appendChild(textContainer);
+        taskDiv.appendChild(deleteButton);
+        taskSection.appendChild(taskDiv);
+    }
 
     function deleteTask(taskToDelete) {
         const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
