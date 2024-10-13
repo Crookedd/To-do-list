@@ -57,11 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const deleteButton = document.createElement('button');
         deleteButton.className = 'delete_button';
         deleteButton.innerHTML = '&times;';
-        deleteButton.onclick = () => {
-            taskSection.removeChild(taskDiv);
-            deleteTask(task);
-            updateNoTasksMessage();
-        };
+        deleteButton.onclick = () => showConfirmationModal(task, taskDiv);
     
         // Добавляем текст и кнопку удаления
         taskDiv.appendChild(textContainer);
@@ -102,9 +98,25 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
+    function showConfirmationModal(task, taskDiv) {
+        const modal = document.getElementById('confirmationModal');
+        modal.classList.remove('hidden');
+    
+        document.getElementById('confirmDelete').onclick = () => {
+            taskSection.removeChild(taskDiv);
+            deleteTask(task);
+            updateNoTasksMessage();
+            modal.classList.add('hidden');
+        };
+    
+        document.getElementById('cancelDelete').onclick = () => {
+            modal.classList.add('hidden');
+        };
+    }
+
     function createButtonContainer() {
         const buttonContainer = document.createElement('div');
-        buttonContainer.className = 'button-container hidden'; 
+        buttonContainer.className = 'button_container hidden'; 
 
         const shareButton = document.createElement('button');
         shareButton.className = 'action_button';

@@ -1,8 +1,8 @@
-$primary-color: #FF8303;
-$background-color: #1B1A17;
-$text-color: #FFFFFF;
-$font-color: #F0E3CAA3;
-$task-background: #242320;
+$primary_color: #FF8303;
+$background_color: #1B1A17;
+$text_color: #FFFFFF;
+$font_color: #F0E3CAA3;
+$task_background: #242320;
 
 @font-face {
     font-family: "Roboto";
@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: center;
     height: 100vh;
-    background-color: $background-color;
+    background-color: $background_color;
 }
 
 .container {
@@ -35,7 +35,7 @@ body {
     flex-wrap: nowrap;
 }
 
-.text-container {
+.text_container {
     display: flex;
     text-align: left;
     flex-direction: column;
@@ -46,19 +46,19 @@ body {
     height: 32px;
     font-size: 10px;
     color: $text-color;
-    background-color: $task-background;
-    border: 1px solid $primary-color;
+    background-color: $task_background;
+    border: 1px solid $primary_color;
     border-radius: 4px;
     margin: 2px; 
     padding: 0 10px;
 }
 .add_button {
-    background-color: $background-color;
-    color: $primary-color;
+    background-color: $background_color;
+    color: $primary_color;
     font-size: 40px;
     width: 70px;
     height: 70px;
-    border-color: $primary-color;
+    border-color: $primary_color;
     border-radius: 4px;
     padding: 8px 12px;
     cursor: pointer;
@@ -71,7 +71,7 @@ body {
 
 .top_line {
     width: 64px;
-    border: 2px solid $primary-color;
+    border: 2px solid $primary_color;
 }
 
 .no_tasks {
@@ -82,8 +82,8 @@ body {
 //Добавление задачи и удаление её
 
 .task {
-    background-color: $task-background; 
-    border: 1px solid $primary-color; 
+    background-color: $task_background; 
+    border: 1px solid $primary_color; 
     height: 44px;
     padding: 10px; 
     margin: 10px 0;
@@ -113,38 +113,85 @@ body {
     width: 32px;
     height: 32px;
     font-size: 25px;
-    background-color: $background-color;
-    border-color: $primary-color;
+    background-color: $background_color;
+    border-color: $primary_color;
     border-radius: 4px;
     color: $primary-color; 
     cursor: pointer;
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Затемнение фона */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Поверх остальных элементов */
+}
+
+.modal_content {
+    background-color: #1B1A17; 
+    padding: 20px;
+    width: 281px;
+    height: 120px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    color: $text-color;
+    border-top: 4px solid $primary_color;
+}
+
+.confirm_button, .cancel_button {
+    width: 64px;
+    height: 24px;
+    background-color: $background_color;
+    border-color: $primary_color;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 0 10px; /* Отступ между кнопками */
+    color: #D9D9D9; /* Цвет текста на кнопках */
+    cursor: pointer;
+}
+
+.modal_buttons {
+    margin-top: 40px;
+}
+
+button:hover {
+    background-color: $primary_color;
+    color: $text-color; /* Цвет кнопок при наведении */
+}
+
 //добавление кнопок поделиться, информация,редактирование
 
-.button-container {
+.button_container {
     display: flex;
     justify-content: flex-end;
     margin: 2px; 
     gap: 10px;
-    transition: all 0.3s ease; /* Плавный переход */
+    transition: all 0.3s ease; 
 }
 
 .hidden {
-    display: none; /* Скрыть кнопки */
+    display: none; 
 }
 
 .task.expanded {
     margin-top: 25px;
-    margin-bottom: 5px; /* Увеличить отступ для следующей задачи */
+    margin-bottom: 5px; 
 
 }
 
 .action_button {
     width: 36px;
     height: 36px;
-    background-color: $task-background; 
-    border: 1px solid $primary-color; 
+    background-color: $task_background; 
+    border: 1px solid $primary_color; 
     color: $primary-color; 
     cursor: pointer;
     padding: 5px 10px; 

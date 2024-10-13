@@ -8,7 +8,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="text-container">
+            <div class="text_container">
                 <input type="text" class="input title" placeholder="Title...">
                 <input type="text" class="input about" placeholder="About...">
             </div>
@@ -18,6 +18,15 @@
             <hr class="top_line">
             <p class="no_tasks" id="noTasksMessage">No tasks</p>
             <hr class="top_line">
+        </div>
+        <div id="confirmationModal" class="modal hidden">
+            <div class="modal_content">
+                <h4>Delete this task?</h4>
+                <div class="modal_buttons">
+                    <button class="confirm_button" id="confirmDelete">Yes</button>
+                    <button class="cancel_button" id="cancelDelete">No</button>
+                </div>
+            </div>
         </div>
         <script src="/assets/scripts/script.js"></script>
     </div>
