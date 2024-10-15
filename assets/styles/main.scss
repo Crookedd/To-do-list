@@ -50,6 +50,16 @@ body {
     border-radius: 4px; 
     padding: 0 10px;
 }
+
+.textarea {
+    font-size: 14px;
+    color: $text-color;
+    background-color: $task_background;
+    border: 1px solid $primary_color;
+    border-radius: 4px; 
+    padding: 0 10px;
+}
+
 .add_button {
     background-color: $background_color;
     color: $primary_color;
@@ -63,7 +73,6 @@ body {
 }
 
 .task_section {
-    text-align: center;
     margin-top: 40px;
 }
 
@@ -93,8 +102,7 @@ body {
 }
 
 .task .text-container {
-    flex-grow: 1; 
-    margin-right: 10px; 
+    width: 90%;
 }
 
 .task .title {
@@ -105,6 +113,12 @@ body {
 .task .about {
     font-size: 14px;
     margin: 0;
+}
+
+.task .about, .task .title {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
 
 .delete_button {
@@ -146,7 +160,7 @@ body {
 
 .confirm_button, .cancel_button, .save_button {
     width: 64px;
-    height: 32px;
+    height: 30px;
     background-color: $background_color;
     border-color: $primary_color;
     border-radius: 4px;
@@ -163,6 +177,7 @@ body {
 button:hover {
     background-color: $primary_color;
     color: $text-color; 
+    transition: all 0.3s ease;
 }
 
 //добавление кнопок поделиться, информация,редактирование
@@ -175,6 +190,10 @@ button:hover {
     transition: all 0.3s ease; 
 }
 
+.mb-12 {
+    margin-bottom: 12px;
+}
+
 .hidden {
     display: none; 
 }
@@ -182,7 +201,7 @@ button:hover {
 .task.expanded {
     margin-top: 25px;
     margin-bottom: 5px; 
-
+    transition: margin-top 0.3s ease;
 }
 
 .action_button {
@@ -212,17 +231,10 @@ button:hover {
     font-size: 14px;
 }
 
-.edit_modal_content input.max_input {
-    height: 340px;
-    width: 320px;
-    margin-top: 5px;
-    font-size: 14px;
-}
-
 .edit_modal_buttons {
     display: flex;
-    justify-content:center;
-    margin-top: 5px;
+    margin-top: 20px;
+    justify-content: center;
 }
 
 

@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const aboutInput = document.querySelector('.input.about');
     const noTasksMessage = document.getElementById('noTasksMessage');
 
-
     loadTasks();
 
     addButton.addEventListener('click', () => {
@@ -43,11 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const textContainer = document.createElement('div');
         textContainer.className = 'text-container';
         
-        const title = document.createElement('p');
+        const title = document.createElement('div');
         title.className = 'title';
         title.textContent = task.title;
         
-        const about = document.createElement('p');
+        const about = document.createElement('div');
         about.className = 'about';
         about.textContent = task.about;
         
@@ -65,36 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
         const buttonContainer = createButtonContainer(task, taskDiv);
         taskSection.appendChild(buttonContainer);
-    
-        let hideTimeout;
-    
-        // Обработчики наведения
-        taskDiv.onmouseover = () => {
-            clearTimeout(hideTimeout); // Остановить таймер скрытия
-            buttonContainer.classList.remove('hidden');
-            taskDiv.classList.add('expanded');
-        };
-    
-        taskDiv.onmouseout = () => {
-            hideTimeout = setTimeout(() => {
-                buttonContainer.classList.add('hidden');
-                taskDiv.classList.remove('expanded');
-            }, 200); // Задержка перед скрытием
-        };
-    
-        // Обработчики для кнопок
-        buttonContainer.onmouseover = () => {
-            clearTimeout(hideTimeout); // Остановить таймер скрытия
-            buttonContainer.classList.remove('hidden');
-            taskDiv.classList.add('expanded');
-        };
-    
-        buttonContainer.onmouseout = () => {
-            hideTimeout = setTimeout(() => {
-                buttonContainer.classList.add('hidden');
-                taskDiv.classList.remove('expanded');
-            }, 200); // Задержка перед скрытием
-        };
     }
 
     function showConfirmationModal(task, taskDiv) {
@@ -133,6 +102,35 @@ document.addEventListener('DOMContentLoaded', () => {
         buttonContainer.appendChild(editButton);
         buttonContainer.appendChild(shareButton);
         buttonContainer.appendChild(infoButton);
+        let hideTimeout;
+    
+        // Обработчики наведения
+        taskDiv.onmouseover = () => {
+            clearTimeout(hideTimeout); // Остановить таймер скрытия
+            buttonContainer.classList.remove('hidden');
+            taskDiv.classList.add('expanded');
+        };
+    
+        taskDiv.onmouseout = () => {
+            hideTimeout = setTimeout(() => {
+                buttonContainer.classList.add('hidden');
+                taskDiv.classList.remove('expanded');
+            }, 200); // Задержка перед скрытием
+        };
+    
+        // Обработчики для кнопок
+        buttonContainer.onmouseover = () => {
+            clearTimeout(hideTimeout); // Остановить таймер скрытия
+            buttonContainer.classList.remove('hidden');
+            taskDiv.classList.add('expanded');
+        };
+    
+        buttonContainer.onmouseout = () => {
+            hideTimeout = setTimeout(() => {
+                buttonContainer.classList.add('hidden');
+                taskDiv.classList.remove('expanded');
+            }, 200); // Задержка перед скрытием
+        };
         return buttonContainer;
     }
 
@@ -149,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         maxInput.value = task.about;
 
           // Обработчик для кнопки "Сохранить"
-          saveButton.onclick = () => {
+        saveButton.onclick = () => {
             task.title = miniInput.value;
             task.about = maxInput.value;
             updateTaskDisplay(task, taskDiv);
@@ -160,13 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Обработчик для кнопки "Отмена"
         cancelButton.onclick = () => {
             editModal.classList.add('hidden'); // Закрыть модальное окно
-        };
-
-        // Закрытие модального окна при клике вне его
-        window.onclick = (event) => {
-            if (event.target === editModal) {
-                editModal.classList.add('hidden');
-            }
         };
     }
 

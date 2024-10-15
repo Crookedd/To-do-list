@@ -44,6 +44,15 @@ body {
   padding: 0 10px;
 }
 
+.textarea {
+  font-size: 14px;
+  color: #FFFFFF;
+  background-color: #242320;
+  border: 1px solid #FF8303;
+  border-radius: 4px;
+  padding: 0 10px;
+}
+
 .add_button {
   background-color: #1B1A17;
   color: #FF8303;
@@ -57,7 +66,6 @@ body {
 }
 
 .task_section {
-  text-align: center;
   margin-top: 40px;
 }
 
@@ -85,8 +93,7 @@ body {
 }
 
 .task .text-container {
-  flex-grow: 1;
-  margin-right: 10px;
+  width: 90%;
 }
 
 .task .title {
@@ -97,6 +104,12 @@ body {
 .task .about {
   font-size: 14px;
   margin: 0;
+}
+
+.task .about, .task .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .delete_button {
@@ -138,7 +151,7 @@ body {
 
 .confirm_button, .cancel_button, .save_button {
   width: 64px;
-  height: 32px;
+  height: 30px;
   background-color: #1B1A17;
   border-color: #FF8303;
   border-radius: 4px;
@@ -155,6 +168,7 @@ body {
 button:hover {
   background-color: #FF8303;
   color: #FFFFFF;
+  transition: all 0.3s ease;
 }
 
 .button_container {
@@ -165,6 +179,10 @@ button:hover {
   transition: all 0.3s ease;
 }
 
+.mb-12 {
+  margin-bottom: 12px;
+}
+
 .hidden {
   display: none;
 }
@@ -172,6 +190,7 @@ button:hover {
 .task.expanded {
   margin-top: 25px;
   margin-bottom: 5px;
+  transition: margin-top 0.3s ease;
 }
 
 .action_button {
@@ -199,17 +218,10 @@ button:hover {
   font-size: 14px;
 }
 
-.edit_modal_content input.max_input {
-  height: 340px;
-  width: 320px;
-  margin-top: 5px;
-  font-size: 14px;
-}
-
 .edit_modal_buttons {
   display: flex;
+  margin-top: 20px;
   justify-content: center;
-  margin-top: 5px;
 }
 
 @media (max-width: 600px) {
