@@ -146,7 +146,7 @@ body {
 
 .confirm_button, .cancel_button, .save_button {
     width: 64px;
-    height: 24px;
+    height: 32px;
     background-color: $background_color;
     border-color: $primary_color;
     border-radius: 4px;
@@ -215,14 +215,14 @@ button:hover {
 .edit_modal_content input.max_input {
     height: 340px;
     width: 320px;
-    padding-bottom:2px;
+    margin-top: 5px;
     font-size: 14px;
 }
 
 .edit_modal_buttons {
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    justify-content:center;
+    margin-top: 5px;
 }
 
 
