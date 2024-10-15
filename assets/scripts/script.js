@@ -42,33 +42,32 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const textContainer = document.createElement('div');
         textContainer.className = 'text-container';
-    
+        
         const title = document.createElement('p');
         title.className = 'title';
         title.textContent = task.title;
-    
+        
         const about = document.createElement('p');
         about.className = 'about';
         about.textContent = task.about;
-    
+        
         textContainer.appendChild(title);
         textContainer.appendChild(about);
-    
+        
         const deleteButton = document.createElement('button');
         deleteButton.className = 'delete_button';
         deleteButton.innerHTML = '&times;';
         deleteButton.onclick = () => showConfirmationModal(task, taskDiv);
-    
-        // Добавляем текст и кнопку удаления
+        
         taskDiv.appendChild(textContainer);
         taskDiv.appendChild(deleteButton);
         taskSection.appendChild(taskDiv);
-
-        const buttonContainer = createButtonContainer();
-        taskSection.appendChild(buttonContainer); // Добавляем кнопки в taskSection
-
+    
+        const buttonContainer = createButtonContainer(task, taskDiv);
+        taskSection.appendChild(buttonContainer);
+    
         let hideTimeout;
-
+    
         // Обработчики наведения
         taskDiv.onmouseover = () => {
             clearTimeout(hideTimeout); // Остановить таймер скрытия
@@ -114,27 +113,73 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    function createButtonContainer() {
+    function createButtonContainer(task, taskDiv) {
         const buttonContainer = document.createElement('div');
         buttonContainer.className = 'button_container hidden'; 
-
+    
         const shareButton = document.createElement('button');
         shareButton.className = 'action_button';
         shareButton.innerHTML = 'p'; 
-
+    
         const infoButton = document.createElement('button');
         infoButton.className = 'action_button';
         infoButton.innerHTML = 'ℹ️'; 
-
+    
         const editButton = document.createElement('button');
         editButton.className = 'action_button';
         editButton.innerHTML = 'e'; 
+        editButton.onclick = () => createEditModal(task, taskDiv);
 
+        buttonContainer.appendChild(editButton);
         buttonContainer.appendChild(shareButton);
         buttonContainer.appendChild(infoButton);
-        buttonContainer.appendChild(editButton);
-
         return buttonContainer;
+    }
+
+    function createEditModal(task, taskDiv) {
+        const editModal = document.getElementById('editModal');
+        editModal.classList.remove('hidden');
+        const miniInput = editModal.querySelector('.mini_input');
+        const maxInput = editModal.querySelector('.max_input');
+        const saveButton = editModal.querySelector('.save_button');
+        const cancelButton = editModal.querySelector('.cancel_button');
+        
+        // Установка значений в поля ввода
+        miniInput.value = task.title;
+        maxInput.value = task.about;
+
+          // Обработчик для кнопки "Сохранить"
+          saveButton.onclick = () => {
+            task.title = miniInput.value;
+            task.about = maxInput.value;
+            updateTaskDisplay(task, taskDiv);
+            editModal.classList.add('hidden'); // Закрыть модальное окно
+            saveTasksToLocalStorage();
+        };
+
+        // Обработчик для кнопки "Отмена"
+        cancelButton.onclick = () => {
+            editModal.classList.add('hidden'); // Закрыть модальное окно
+        };
+
+        // Закрытие модального окна при клике вне его
+        window.onclick = (event) => {
+            if (event.target === editModal) {
+                editModal.classList.add('hidden');
+            }
+        };
+    }
+
+    function updateTaskDisplay(task, taskDiv) {
+        const titleElement = taskDiv.querySelector('.title');
+        const aboutElement = taskDiv.querySelector('.about');
+        titleElement.textContent = task.title;
+        aboutElement.textContent = task.about;
+    }
+
+    function saveTasksToLocalStorage() {
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
     function deleteTask(taskToDelete) {
