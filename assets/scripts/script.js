@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         const shareButton = document.createElement('button');
         shareButton.className = 'action_button';
-        shareButton.innerHTML = 'p'; 
+        shareButton.innerHTML = '<img src = "../assets/images/share.svg" />'; 
     
         const infoButton = document.createElement('button');
         infoButton.className = 'action_button';
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         const editButton = document.createElement('button');
         editButton.className = 'action_button';
-        editButton.innerHTML = 'e'; 
+        editButton.innerHTML = '<img src = "../assets/images/edit.svg" />'; 
         editButton.onclick = () => createEditModal(task, taskDiv);
 
         buttonContainer.appendChild(editButton);
@@ -142,22 +142,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const saveButton = editModal.querySelector('.save_button');
         const cancelButton = editModal.querySelector('.cancel_button');
         
-        // Установка значений в поля ввода
         miniInput.value = task.title;
         maxInput.value = task.about;
 
-          // Обработчик для кнопки "Сохранить"
         saveButton.onclick = () => {
             task.title = miniInput.value;
             task.about = maxInput.value;
             updateTaskDisplay(task, taskDiv);
-            editModal.classList.add('hidden'); // Закрыть модальное окно
+            editModal.classList.add('hidden');
             saveTasksToLocalStorage();
         };
 
-        // Обработчик для кнопки "Отмена"
         cancelButton.onclick = () => {
-            editModal.classList.add('hidden'); // Закрыть модальное окно
+            editModal.classList.add('hidden');
         };
     }
 
