@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const about = aboutInput.value.trim();
 
         if (title && about) {
-            const task = { title, about };
+            const task = { id: Date.now(), title, about };
             saveTask(task);
             renderTask(task);
             titleInput.value = '';
@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderTask(task) {
         const taskDiv = document.createElement('div');
         taskDiv.className = 'task';
+        taskDiv.setAttribute('data-id', task.id); // Устанавливаем атрибут data-id
         
         const textContainer = document.createElement('div');
         textContainer.className = 'text-container';
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const deleteButton = document.createElement('button');
         deleteButton.className = 'delete_button';
         deleteButton.innerHTML = '&times;';
-        deleteButton.onclick = () => showConfirmationModal(task, taskDiv);
+        deleteButton.onclick = () => showConfirmationModal(task.id, taskDiv);
         
         taskDiv.appendChild(textContainer);
         taskDiv.appendChild(deleteButton);
@@ -66,15 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
         taskSection.appendChild(buttonContainer);
     }
 
-    function showConfirmationModal(task, taskDiv) {
+    function showConfirmationModal(taskId, taskDiv) {
         const modal = document.getElementById('confirmationModal');
         modal.classList.remove('hidden');
     
         document.getElementById('confirmDelete').onclick = () => {
+            deleteTask(taskId);
             taskSection.removeChild(taskDiv);
-            deleteTask(task);
             updateNoTasksMessage();
-            modal.classList.add('hidden');
+            modal.classList.add('hidden'); // Закрываем модальное окно
         };
     
         document.getElementById('cancelDelete').onclick = () => {
@@ -170,9 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
-    function deleteTask(taskToDelete) {
+    function deleteTask(taskId) {
         const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-        const updatedTasks = tasks.filter(task => task.title !== taskToDelete.title || task.about !== taskToDelete.about);
+        const updatedTasks = tasks.filter(task => task.id !== taskId); // Удаляем по ID
         localStorage.setItem('tasks', JSON.stringify(updatedTasks));
     }
 
@@ -180,15 +181,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         const topLine = document.querySelector('.top_line'); 
         const bottomLine = document.querySelector('.top_line:last-of-type'); 
+        const noTasksMessage = document.getElementById('noTasksMessage');
     
         if (tasks.length === 0) {
-            noTasksMessage.style.display = 'block'; 
-            topLine.style.display = 'block'; 
-            bottomLine.style.display = 'block';
+            noTasksMessage.classList.remove('hidden'); 
+            topLine.classList.remove('hidden'); 
+            bottomLine.classList.remove('hidden');
         } else {
-            noTasksMessage.style.display = 'none';
-            topLine.style.display = 'none'; 
-            bottomLine.style.display = 'none'; 
+            noTasksMessage.classList.add('hidden');
+            topLine.classList.add('hidden'); 
+            bottomLine.classList.add('hidden'); 
         }
     }
 });
