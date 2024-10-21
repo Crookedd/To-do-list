@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const shareButton = document.createElement('button');
         shareButton.className = 'action_button';
         shareButton.innerHTML = '<img src = "../assets/images/share.svg" />'; 
+        shareButton.onclick = () => showShareModal(task);
     
         const infoButton = document.createElement('button');
         infoButton.className = 'action_button';
@@ -169,6 +170,48 @@ document.addEventListener('DOMContentLoaded', () => {
     function saveTasksToLocalStorage() {
         const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    function showShareModal(task) {
+        const shareModal = document.getElementById('shareModal');
+        shareModal.classList.remove('hidden');
+    
+        // Обработчики для кнопок 
+        document.getElementById('copyToClipboard').onclick = () => copyTaskToClipboard(task);
+        document.getElementById('shareTelegram').onclick = () => shareOnTelegram(task);
+        document.getElementById('shareWhatsApp').onclick = () => shareOnWhatsApp(task);
+        document.getElementById('shareVK').onclick = () => shareOnVK(task);
+
+        shareModal.onclick = (event) => {
+            if (event.target === shareModal) {
+                shareModal.classList.add('hidden');
+            }
+        };
+    }
+
+    function copyTaskToClipboard(task) {
+        const taskText = `Задача: ${task.title}\nОписание: ${task.about}`;
+        
+        navigator.clipboard.writeText(taskText).then(() => {
+            alert("Задача скопирована в буфер обмена!");
+        }).catch(err => {
+            console.error("Ошибка при копировании: ", err);
+        });
+    }
+    
+    function shareOnTelegram(task) {
+        const url = encodeURIComponent(`Задача: ${task.title}\nОписание: ${task.about}`);
+        window.open(`https://t.me/share/url?url=${url}`, '_blank');
+    }
+    
+    function shareOnWhatsApp(task) {
+        const url = encodeURIComponent(`Задача: ${task.title}\nОписание: ${task.about}`);
+        window.open(`https://wa.me/?text=${url}`, '_blank');
+    }
+    
+    function shareOnVK(task) {
+        const url = encodeURIComponent(`Задача: ${task.title}\nОписание: ${task.about}`);
+        window.open(`https://vk.com/share.php?url=${url}`, '_blank');
     }
 
     function deleteTask(taskId) {
