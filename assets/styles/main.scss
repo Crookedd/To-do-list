@@ -1,66 +1,67 @@
-@import 'variables';
-@import 'modals';
-@import 'layout';
-@import 'buttons';
-@import 'text';
+@import "variables";
+@import "modals";
+@import "layout";
+@import "buttons";
+@import "text";
 
 @font-face {
-    font-family: "Roboto";
-    src: url(../fonts/Roboto-Regular.ttf);
+  font-family: "Roboto";
+  src: url(../fonts/Roboto-Regular.ttf);
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    background-color: $background_color;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-color: $background_color;
 }
 
-//Добавление задачи и удаление её
+//Добавление задачи
 
 .task {
-    background-color: $task_background; 
-    border: 1px solid $primary_color; 
-    height: 44px;
-    padding: 10px; 
-    margin: 10px 0;
-    border-radius: 5px;
-    color: $font-color; 
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
+  background-color: $task_background;
+  border: 1px solid $primary_color;
+  height: 44px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  color: $font-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .task .text-container {
-    width: 90%;
+  width: 90%;
 }
 
 .task .title {
-    font-size: 22px;
-    margin: 0;
+  font-size: 22px;
+  margin: 0;
 }
 
 .task .about {
-    font-size: 14px;
-    margin: 0;
+  font-size: 14px;
+  margin: 0;
 }
 
-.task .about, .task .title {
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
+.task .about,
+.task .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media (max-width: 600px) {
-    .container {
-        padding: 10px;
-    }
+  .container {
+    padding: 10px;
+  }
 
-    .header {
-        flex-direction: row;
-        align-items: flex-start;
-    }
+  .header {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }

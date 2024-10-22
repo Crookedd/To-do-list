@@ -1,105 +1,107 @@
 .add_button {
-    background-color: $background_color;
-    color: $primary_color;
-    font-size: 40px;
-    width: 70px;
-    height: 70px;
-    border-color: $primary_color;
-    border-radius: 4px;
-    padding: 8px 12px;
-    cursor: pointer;
+  background-color: $background_color;
+  color: $primary_color;
+  font-size: 40px;
+  width: 70px;
+  height: 70px;
+  border-color: $primary_color;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
 }
 
 .delete_button {
-    width: 32px;
-    height: 32px;
-    font-size: 25px;
-    background-color: $background_color;
-    border-color: $primary_color;
-    border-radius: 4px;
-    color: $primary-color; 
-    cursor: pointer;
+  width: 32px;
+  height: 32px;
+  font-size: 25px;
+  background-color: $background_color;
+  border-color: $primary_color;
+  border-radius: 4px;
+  color: $primary-color;
+  cursor: pointer;
 }
 
-.confirm_button, .cancel_button, .save_button {
-    width: 64px;
-    height: 30px;
-    background-color: $background_color;
-    border-color: $primary_color;
-    border-radius: 4px;
-    padding: 5px;
-    margin: 0 10px;
-    color: #D9D9D9; 
-    cursor: pointer;
+.confirm_button,
+.cancel_button,
+.save_button {
+  width: 64px;
+  height: 30px;
+  background-color: $background_color;
+  border-color: $primary_color;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 0 10px;
+  color: #d9d9d9;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: $primary_color;
-    color: $text-color; 
-    transition: all 0.3s ease;
+  background-color: $primary_color;
+  color: $text-color;
+  transition: all 0.3s ease;
 }
 
 //добавление кнопок поделиться, информация,редактирование
 
 .button_container {
-    display: flex;
-    justify-content: flex-end;
-    margin: 2px; 
-    gap: 10px;
-    transition: all 0.3s ease; 
+  display: flex;
+  justify-content: flex-end;
+  margin: 2px;
+  gap: 10px;
+  transition: all 0.3s ease;
 }
 
 .mb-12 {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .hidden {
-    display: none; 
+  display: none;
 }
 
 .task.expanded {
-    margin-top: 25px;
-    margin-bottom: 5px; 
-    transition: margin-top 0.3s ease;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  transition: margin-top 0.3s ease;
 }
 
 .action_button {
-    width: 36px;
-    height: 36px;
-    background-color: $task_background; 
-    border: 1px solid $primary_color; 
-    color: white; 
-    cursor: pointer;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 5px 10px; 
-    border-radius: 4px; 
-    font-size: 16px;
+  width: 36px;
+  height: 36px;
+  background-color: $task_background;
+  border: 1px solid $primary_color;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
-//добалвние поделиться 
+//добалвние поделиться
 .share_buttons {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
 }
 
 .share_button {
-    background-color: $task-background;
-    border-radius: 50%;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    width: 50px;
-    height: 50px; 
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    margin: 0 10px;
+  background-color: $task-background;
+  border-radius: 50%;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
 }
 
 .share_button img {
-    max-width: 100%;
-    max-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
