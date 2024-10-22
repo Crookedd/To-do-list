@@ -19,42 +19,6 @@ body {
   background-color: $background_color;
 }
 
-//Добавление задачи
-
-.task {
-  background-color: $task_background;
-  border: 1px solid $primary_color;
-  height: 44px;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  color: $font-color;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.task .text-container {
-  width: 90%;
-}
-
-.task .title {
-  font-size: 22px;
-  margin: 0;
-}
-
-.task .about {
-  font-size: 14px;
-  margin: 0;
-}
-
-.task .about,
-.task .title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 @media (max-width: 600px) {
   .container {
     padding: 10px;
