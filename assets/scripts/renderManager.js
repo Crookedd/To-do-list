@@ -46,7 +46,7 @@ export function createButtonContainer(task, taskDiv) {
 
     const infoButton = document.createElement('button');
     infoButton.className = 'action_button';
-    infoButton.innerHTML = 'ℹ️'; 
+    infoButton.innerHTML = '<img src = "../assets/images/inf.svg" />'; 
 
     const editButton = document.createElement('button');
     editButton.className = 'action_button';
